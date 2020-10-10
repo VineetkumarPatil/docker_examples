@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, make_response, g
-from redis import Redis
 import os
 import socket
 import random
@@ -12,10 +11,6 @@ option_a = os.getenv('OPTION_A', "Cats")
 option_b = os.getenv('OPTION_B', "Dogs")
 hostname = socket.gethostname()
 
-def get_redis():
-    if not hasattr(g, 'redis'):
-        g.redis = Redis(host="redis", db=0, socket_timeout=5)
-    return g.redis
 
 def get_mysql_db_connector():
     mydb = mysql.connector.connect\
