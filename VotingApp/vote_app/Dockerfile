@@ -3,17 +3,17 @@
 FROM python:3.7-alpine
 
 # Set the application directory
-WORKDIR /app
-
-# Install our requirements.txt
-ADD requirements.txt /app/requirements.txt
-RUN pip install -r requirements.txt
+RUN mkdir -p /flask_app/app
+WORKDIR /flask_app/app
 
 # Copy our code from the current folder to /app inside the container
-ADD . /app
+COPY . /flask_app/app
 
-# Make port 80 available for links and/or publish
-EXPOSE 80
+# Install our requirements.txt
+RUN pip install -r requirements.txt
+
+EXPOSE 20001
 
 # Define our command to be run when launching the container
-CMD ["gunicorn", "app:driver", "-b", "0.0.0.0:80", "--log-file", "-", "--access-logfile", "-", "--workers", "4", "--keep-alive", "0"]
+CMD ["gunicorn", "driver:app", "-b", "0.0.0.0:20001", "--workers", "4", "--keep-alive", "0"]
+

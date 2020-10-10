@@ -1,30 +1,39 @@
 version: "3"
 
 services:
-  vote:
-    build: ./vote_app
-    command: python app.py
+  flask:
+    image: vote_app:latest  # creates image by this name.
+    container_name: vote_app_container
+    restart: always
+    build:
+      context: ./vote_app
+      dockerfile: Dockerfile  # can be Dockerfile-dev , Dockerfile-prod
     volumes:
       - ./vote_app:/app
     ports:
-      - "5000:80"   # Exposing the service to outside world.
+      - "20001:20001"   # Exposing the service to outside world.
+    networks:
+      - app-tier
 
-
-  db:
+  mysql_db: 
     image: mysql
-    container_name: mysql_test_v1
+    container_name: mysql_db
     restart: always
     volumes:
       - "/home/vineetkumar_patil123/custom_storage_docker_volume/mysql_db_v1/:/var/lib/mysql"
       - "/home/vineetkumar_patil123/custom_docker_volume/vote.sql:/vote.sql"
     environment:
       MYSQL_ROOT_PASSWORD: passwd
-      MYSQL_DATABASE: student_db
+      MYSQL_DATABASE: vote_db
+      MYSQL_USER: testing
+      MYSQL_PASSWORD: testing
     ports:
-      - "3307:3306"
+      - "3306:3306"
     networks:
-      - back-tier
+      - app-tier
 
 networks:
+  app-tier:
+    driver: bridge
   front-tier:
   back-tier:

@@ -13,15 +13,23 @@ cd /home/vineetkumar_patil123/docker_yml_files
 docker-compose -f /home/vineetkumar_patil123/docker_yml_files/docker_composer_mysql_database.yml up -d
 
 # login into database
-docker exec -it mysql_test_v1 bash
+docker exec -it mysql_db bash
 
 ls -l 
 
 # login into sql
+mysql -uroot -p vote_db < vote.sql
+
+
 mysql -uroot -ppasswd
 
 
-exit;
+show databases;
 
-mysql -uroot -p student_db < school.sql
+
+SELECT    user  FROM     mysql.user;
+
+GRANT ALL PRIVILEGES ON vote_db.* TO 'testing'@'%' WITH GRANT OPTION;
+
+
 

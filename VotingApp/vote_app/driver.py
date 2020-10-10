@@ -15,7 +15,7 @@ hostname = socket.gethostname()
 def get_mysql_db_connector():
     mydb = mysql.connector.connect\
     (
-        host="localhost",
+        host="mysql_db",
         port= '3306',
         user="root",
         password="passwd",
@@ -31,6 +31,7 @@ def insert_data_into_db(voter_id,vote):
     mycursor.execute(sql, val)
     mydb.commit()
     print(mycursor.rowcount, "record inserted.")
+    print("successfully inserted")
     return "successfully inserted"
 
 
@@ -59,9 +60,17 @@ def hello():
     resp.set_cookie('voter_id', voter_id)
     return resp
 
-def initiate_the_program():
-    app.run(host='0.0.0.0', port=80, debug=True, threaded=True) # these can be added in config.yaml as well.
-    #app.run(host='localhost', port=5000, debug=True, threaded=True)  # these can be added in config.yaml as well. Local testing
 
+@app.route("/helloworld", methods=['POST','GET'])
+def helloworld():
+    print("helloworld")
+    return "Hello World...!!!"
+
+'''
 if __name__ == '__main__':
-    initiate_the_program()
+    print("starting the python program..........")
+    ip = '0.0.0.0'
+    #ip = 'localhost'
+    app.run(host=ip, debug=True, threaded=True) # these can be added in config.yaml as well.
+    #app.run(host='localhost', port=5000, debug=True, threaded=True)  # these can be added in config.yaml as well. Local testing
+'''
