@@ -65,8 +65,8 @@ def hello():
     return resp
 
 def initiate_the_program():
-    #app.run(host='0.0.0.0', port=80, debug=True, threaded=True) # these can be added in config.yaml as well.
-    app.run(host='localhost', port=5000, debug=True, threaded=True)  # these can be added in config.yaml as well. Local testing
+    app.run(host='0.0.0.0', port=80, debug=True, threaded=True) # these can be added in config.yaml as well.
+    #app.run(host='localhost', port=5000, debug=True, threaded=True)  # these can be added in config.yaml as well. Local testing
 
 if __name__ == '__main__':
     initiate_the_program()

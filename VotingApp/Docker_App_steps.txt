@@ -24,3 +24,4 @@ mysql -uroot -ppasswd
 exit;
 
 mysql -uroot -p student_db < school.sql
+
