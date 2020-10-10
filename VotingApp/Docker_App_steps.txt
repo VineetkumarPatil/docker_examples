@@ -1,0 +1,26 @@
+docker tag local-image:tagname new-repo:tagname
+docker push new-repo:tagname
+
+
+
+command :- 
+
+cd /home/vineetkumar_patil123/docker_yml_files
+
+/home/vineetkumar_patil123/custom_docker_volume
+
+# run in deattach mode
+docker-compose -f /home/vineetkumar_patil123/docker_yml_files/docker_composer_mysql_database.yml up -d
+
+# login into database
+docker exec -it mysql_test_v1 bash
+
+ls -l 
+
+# login into sql
+mysql -uroot -ppasswd
+
+
+exit;
+
+mysql -uroot -p student_db < school.sql
