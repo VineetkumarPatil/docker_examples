@@ -19,7 +19,7 @@ def get_mysql_db_connector():
         port= '3306',
         user="root",
         password="passwd",
-        database="student_db"
+        database="vote_db"
     )
     return mydb
 

@@ -32,4 +32,6 @@ SELECT    user  FROM     mysql.user;
 GRANT ALL PRIVILEGES ON vote_db.* TO 'testing'@'%' WITH GRANT OPTION;
 
 
+create user 'testing'@'localhost' identified by 'testing';
 
+grant all privileges on vote_db.* to 'testing'@'%' with grant option;
