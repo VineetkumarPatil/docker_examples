@@ -13,7 +13,7 @@
 * [Support](#support)
 
 ##### Introduction
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This is  a simple application demonstrating the usage of dockers and how can we fit multiple services in a single conatiner. The idea is to build a simple python application interatcing with a postgresql database. We will club both python application and database in a single container showing off the ability of container to hold multiple services.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This is  a simple application demonstrating the usage of dockers and how can we fit multiple services in a single conatiner. The idea is to build a simple python application interacting with a postgresql database. We will club both python application and database in a single container showing off the ability of container to hold multiple services.
 
 ##### Requirements
  - A simple python applciation to interact to postgresql database.
